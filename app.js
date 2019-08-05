@@ -9,7 +9,7 @@ var express       = require('express'),
     LocalStrategy = require('passport-local'),
     flash = require('connect-flash');
 
-const DATABASEURL = "mongodb+srv://roootedinnature:tacotuesday@cluster0-ekhlc.mongodb.net/test?retryWrites=true&w=majority";
+
 // METHOD-OVERRIDE
 var methodOverride = require('method-override');
 
