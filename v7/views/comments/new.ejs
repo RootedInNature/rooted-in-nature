@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+
+    <!-- 
+                BOOTSTRAP FORMS
+                - Place each separate input/label into form-group to separate
+                - Use 'form-control' on the inputs to style the box (spans whole page)
+
+                BUTTON
+                - btn btn-primary will make a blue styled button
+            -->
+    <div class="plant-comment-form-container">
+        <form class="plant-comment-form" action="/plants/<%= plant._id %>/comments" method="POST">
+            <!-- 
+                            - Action will sent the data to /blogs when post request made 
+                            - name the inputs with blog[] so can use req.body.blog which will 
+                            hold all the properties of the blog in it, then can be accessed by
+                            req.body.blog.title, etc...
+                        -->
+
+            <!-- Make the names comment[user] so can access easier in app.js -->
+
+            <div>
+                <h2>Create New Comment</h2>
+                <input type="text" class="form-control" name="comment[comment]" id="formPost" placeholder="Comment">
+                <button class="btn btn-sm btn-dark mt-2">Submit</button>
+            </div>
+
+
+
+
+
+
+
+        </form>
+    </div>
+
+<% include ../partials/footer %>

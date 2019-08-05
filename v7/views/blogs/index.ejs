@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+    <div class="blog-index-container">
+        <!-- BLOG POST HEADER-->
+        <div class="blog-header-container">
+            <h1 class="blog-header">BLOG POSTS</h1>
+        </div> 
+
+        <!-- BLOG POSTS -->
+        <% blogs.forEach(function(blog){ %>
+            <div class="container-fluid blog-post-container">
+                <div class="row">
+                    <div class="blog-post-image-container">
+                        <img class="blog-post-image" src="<%= blog.image %>" alt=" <%= blog.title %>" +" image" />
+                    </div> <!-- EXTRA ROW -->
+                    <div class="blog-post-content-container">
+                        <div class="blog-post-title-container">
+                            <h3 class="blog-post-title"><%= blog.title %></h3>
+                        </div> <!-- BLOG TITLE -->
+                        <div class="blog-description-container">
+                            <p class="blog-description"><%if(blog.body){%><%= blog.body.substring(0,300) %><%}%>...</p>
+                            <!-- Link to the show page with the specific blog -->
+                            <a class="btn btn-dark btn-sm" href="/blogs/<%=blog._id%>">Read More</a>
+                            
+                        </div> <!-- BLOG DATE -->
+                    </div> <!-- DATE/ TITLE COLUMN -->
+                </div> <!-- DATE/TITLE ROW -->
+            </div> <!-- CONTAINER FOR BLOG POSTS -->
+        <% }); %>
+
+    
+</div> <!-- WHOLE MAIN BODY CONTAINER-->
+        <% if(currentUser){ %>
+        <a href="/blogs/new" class="add-blog">
+            <h5>ADD BLOG</h5>
+        </a>
+        <% } %>
+<% include ../partials/footer %>
+        
+
+        
+    

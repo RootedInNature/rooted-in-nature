@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+    <div class="new-blog-post-form-container">
+    <a class="back-button" href="/blogs/<%=blog_id%>">BACK</a>
+
+            
+            <!-- 
+                        BOOTSTRAP FORMS
+                        - Place each separate input/label into form-group to separate
+                        - Use 'form-control' on the inputs to style the box (spans whole page)
+                
+                        BUTTON
+                        - btn btn-primary will make a blue styled button
+                     -->
+            <form class="new-blog-post-form" action="/blogs" method="POST">
+
+                
+                
+                <!-- 
+                            - Action will sent the data to /blogs when post request made 
+                            - name the inputs with blog[] so can use req.body.blog which will 
+                            hold all the properties of the blog in it, then can be accessed by
+                            req.body.blog.title, etc...
+                        -->
+                        
+                <div class="container">
+                    <div class="form-group new-blog-post-title">
+                        <h2>Create New Blog</h2>
+                    </div>
+                    <div class="form-group">
+                        <label for="formTitle">TITLE</label>
+                        <input type="text" class="form-control" name="blog[title]" id="formTitle" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="formImage">IMAGE</label>
+                        <input type="text" class="form-control" name="blog[image]" id="formImage" placeholder="Image URL">
+                    </div>
+                    <div class="form-group">
+                        <label for="formBody">BODY</label>
+                        <textarea class="form-control" id="formBody" name="blog[body]">Body</textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-sm btn-dark mt-2">
+                    </div>
+                </div>
+            
+
+            </form>
+    </div>
+
+<% include ../partials/footer %>

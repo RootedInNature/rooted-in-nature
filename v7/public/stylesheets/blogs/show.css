@@ -1,0 +1,71 @@
+/* Individual blog post styling */
+
+.blog-post-comments-container h5{
+    text-align: center;
+    background-color: #2C3E50;
+    color: white;
+    margin:0;
+}
+
+.blog-post-comments-container.media {
+    border: solid #2C3E50 2px;
+    
+    border-top: none; 
+    margin:0;
+    background-color: rgb(198, 220, 241)
+}
+/* UI gradient styles to toggle */
+.blog {
+    background: #2C3E50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4CA1AF, rgb(93, 115, 138)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.blog1 {
+    background: #42275a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.blog2 {
+    background: #2C3E50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FD746C, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FD746C, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.blog3 {
+    background: #3a7bd5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3a6073, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.blog-image{
+    height: 350px;
+    border: solid #2C3E50 30px;
+    
+}
+
+.blog-post-comments-edit-delete-button-container{
+    display:flex;
+    padding-bottom: 10px;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.blog-post-comments-edit-button, .blog-post-comments-delete-button{
+    background-color: #2C3E50 !important;
+    border: #2C3E50 !important;
+}
+
+.blog-post-comment-background-button{
+    display:flex;
+    justify-content: center;
+}
+.blog-post-add-comment, .blog-post-change-background{
+    margin: 10px;
+    background-color: #2C3E50 !important;
+    border: #2C3E50 !important;
+    
+}

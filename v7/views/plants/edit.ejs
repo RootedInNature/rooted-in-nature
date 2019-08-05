@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+    <div class="plant-edit-form-container">
+        <a class="back-button" href="/plants/<%=plant.id%>">BACK</a>
+        <form class="plant-edit-comment-form" action="/plants/<%= plant._id %>?_method=PUT" method="POST">
+            <div>
+                <h2>Edit Plant</h2>
+                <input type="text" class="form-control mb-1" name="plant[image]" placeholder="<%= plant.image %>">
+                <input type="text" class="form-control mb-1" name="plant[genus]" value="<%= plant.genus%>">
+                <input type="text" class="form-control" name="plant[species]" value="<%= plant.species %>">
+                <button class="btn btn-sm btn-dark mt-2">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+
+<% include ../partials/footer %>

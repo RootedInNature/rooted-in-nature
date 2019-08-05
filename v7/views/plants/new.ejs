@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+    <div class="new-plant-post-form-container">
+        <a class="back-button" href="/plants/">BACK</a>
+        <form class="new-plant-post-form" action="/plants" method="POST">
+            <div class="new-plant-container container">
+                <div class="form-group new-plant-post-title">
+                    <h2>Create New Plant</h2>
+                </div>
+                <!-- Need to change it so name="plant[genus]" for all -->
+                <div class="form-group new-plant-post-genus">
+                    <input type="text" name="genus" placeholder="Genus">
+                </div>
+                <div class="form-group new-plant-post-species">
+                    <input type="text" name="species" placeholder="Species">
+                </div>
+                <div class="form-group new-plant-post-image">
+                    <input type="text" name="image" placeholder="Image URL">
+                </div>
+                <div class="form-group new-plant-post-submit">
+                    <button>Submit</button>
+                </div>  
+            </div>
+        </form>
+    </div>
+    
+<% include ../partials/footer %>
+
+
+
+
+
+ 

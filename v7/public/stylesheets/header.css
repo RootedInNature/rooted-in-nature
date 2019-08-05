@@ -1,0 +1,22 @@
+/* Header Logo */
+
+.jumbotron {
+    display: flex;
+    /* width: 50%;*/
+    height:9em; 
+    /* Had to use !important since the jumbotron was taking over */
+    background-color: #e2e1d5 !important; 
+}
+
+.jumbotron img {
+    margin: 0 auto; /* Center the image of the logo in center (responsive)*/
+    height: 9em;
+    margin-top: -4em; /* The top of the image left gap*/
+}
+
+/* Navbar styling */
+
+.navbar {
+    /* original color rgb(193, 240, 166)  */
+    background-color: #8dcdbd !important;   
+}

@@ -1,0 +1,106 @@
+
+
+/* UI gradient styles to toggle */
+.plant {
+    background: #2C3E50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.plant1 {
+    background: #42275a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.plant2 {
+    background: #2C3E50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FD746C, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FD746C, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.plant3 {
+    background: #3a7bd5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3a6073, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.plant-post-comment-background-button{
+    display:flex;
+    justify-content: center;
+}
+/* PLANT SHOW PAGE */
+.plant-comments-container h5{
+    text-align: center;
+    background-color: #2C3E50;
+    color: white;
+    margin:0;
+}
+
+.plant-comments-container.media {
+    border: solid #2C3E50 2px;
+    border-top: none; 
+    margin:0;
+    background-color: rgb(198, 220, 241)
+}
+
+.plant-image{
+    height: 350px;
+    border: solid #2C3E50 30px;
+    margin-top: 5%;
+    
+}
+
+.plant-edit-delete-buttons-container{
+    display:flex;
+    padding: 10px 10px 10px 0;
+    justify-content: flex-end;
+    
+    
+}
+
+
+.plant-edit-delete-buttons-container a{
+    margin-right: 10px;
+    
+}
+
+.plant-comments-edit-delete-button-container{
+    display:flex;
+    padding-bottom: 10px;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.plant-comments-edit-button, .plant-comments-delete-button{
+    background-color: #2C3E50 !important;
+    border: #2C3E50 !important;
+}
+
+.plant-comment-background-button{
+    display:flex;
+    justify-content: center;
+}
+.plant-add-comment, .plant-change-background{
+    margin: 10px;
+    background-color: #2C3E50 !important;
+    border: #2C3E50 !important;
+    color: white;
+    
+}
+
+.plant-edit-delete-buttons-container{
+    display:flex;
+    justify-content: center;
+
+}
+
+
+.plant-post-add-comment, .plant-post-change-background{
+    margin: 10px;
+    background-color: #2C3E50 !important;
+    border: #2C3E50 !important;
+    
+}

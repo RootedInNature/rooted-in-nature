@@ -1,0 +1,17 @@
+/* NEW PLANT COMMENT PAGE */
+
+.plant-comment-form-container{
+    background-color:#d3d6d8;
+    height: 81%;
+    padding: 60px;
+    
+}
+
+.plant-comment-form {
+    
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 40%;
+    
+}

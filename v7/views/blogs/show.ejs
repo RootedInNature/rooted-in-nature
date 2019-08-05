@@ -1,0 +1,75 @@
+<% include ../partials/header %>
+    <!-- This will show the blog -->
+    <!-- Note that container-fluid fills the whole background while 'container' leavs some margein on the sides -->
+    <div class="container-fluid blog-background blog">
+        <!-- 
+        Make a row to dilineate a grid system
+        - justify-content to place the content horizontally
+        - p is for padding, m is for margin, t=top,b=bottom, l=left,r=right
+    -->
+        <div class="container">
+            <div class="row justify-content-center pt-5 pb-4">
+                <h1><%=blog.title%></h1>
+            </div>
+            <div class="row justify-content-center pt-1 pb-1 blog-image-container">
+                <img class="blog-image" src="<%=blog.image%>" alt="">
+            </div>
+            <div class="row justify-content-start pt-3">
+                <p><%=blog.date.toDateString()%></p>
+            </div>
+            <div class="row justify-content-start pt-1">
+                <article><%-blog.body%></article>
+            </div>
+        <!-- Make it flex column so the comments line up top to bottom -->
+            <div class="blog-post-comments-container row d-flex flex-column">
+                <!-- Print out the comments made by the users by looping through array of
+                    comment objects -->
+                <h5>COMMENTS</h5>
+                <%blog.comments.forEach(function(comment){%>
+                <div class="blog-post-comments-container media">
+                    <div class="row media-body">
+                        <div class="col-sm-3">
+                            <p><%=comment.author.username%></p>
+                        </div>
+                        <div class="col-sm-9">
+
+                            <p><%=comment.date.toDateString()%></p>
+
+                            <p><%=comment.comment%></p>
+
+                            <!-- EDIT and DELETE BUTTONS IF USER OWNS COMMENT -->
+                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                <div class="row mt-3 blog-post-comments-edit-delete-button-container">
+                                    <a class="btn btn-primary mr-2 btn-sm blog-post-comments-edit-button" href="/blogs/<%=blog._id%>/blogComments/<%=comment._id%>/edit">EDIT</a>
+                                    <form action="/blogs/<%=blog._id%>/blogComments/<%=comment._id%>?_method=DELETE" method="POST">
+                                        <!-- method overide treats as a delete rout -->
+                                        <button class="btn btn-primary btn-sm blog-post-comments-delete-button">DELETE</button>
+                                    </form>
+                                
+                                </div>
+                            <% }; %>
+                        </div>
+                    </div>
+
+                </div>
+    
+                <% }); %>
+                </div> 
+                <div class="blog-post-comment-background-button">
+                    <% if(currentUser){ %>
+                    <a class="btn btn-primary btn-sm blog-post-add-comment" href="/blogs/<%=blog._id%>/blogComments/new">ADD COMMENT</a>
+                    <% }; %>
+                    <a class="btn btn-primary ml-2 btn-sm blog-post-add-comment" href="/blogs/<%=blog._id%>/edit">EDIT BLOG</a>
+                    <form action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-primary ml-2 btn-sm blog-post-add-comment">DELETE</button>
+                    </form>
+
+                    <button class="btn btn-primary ml-2 btn-sm change-background blog-post-change-background">CHANGE BACKGROUND</button>
+                    
+                </div>
+                <!-- IF YOU ARE A USER, THEN THEY CAN ADD COMMENT -->
+
+
+        </div>
+    </div>
+<% include ../partials/footer %>

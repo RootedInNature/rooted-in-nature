@@ -1,0 +1,96 @@
+/******************************* MEDIA QUERIES *********************************/
+@media (max-width: 870px){
+    .blog-description {
+        /* Remove the preview description when width below this size */
+        display: none;
+    }
+}
+/************************* CONTAINER FOR WHOLE PAGE ****************************/
+.blog-index-container {
+    height: 81vh; /* Sets the height in between header and footer*/
+    display: flex;
+    /* So items will go beneath eachother */
+    flex-wrap: wrap; 
+    /* So header stays ceneered */
+    justify-content:center;
+    align-content: flex-start;
+    overflow: auto;
+    background-color:rgb(184, 213, 241);
+}
+
+/* BLOG POSTS HEADER */
+.blog-header-container{
+    display: none;
+    display: flex;
+    /* Center the title */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color:  rgb(72, 75, 233);
+    margin: 0;
+    height: 15vh;
+}
+
+/***************************** BLOG POSTS *************************************/
+
+
+
+/* SINGLE POST CONTAINER */
+.blog-post-container {
+    height:175px;
+    
+   
+     
+}
+
+/* EVERY OTHER POST BACKGROUND SET TO OPPOSITE COLOR */
+.blog-post-container:nth-of-type(odd){
+    background: rgb(184, 213, 241);
+}
+.blog-post-container:nth-of-type(even) {
+    background: rgb(166, 204, 240);
+}
+
+
+/* BLOG PREVIEW IMAGE */
+.blog-post-image-container {
+    /* Pad the image on left and right */
+    padding: 20px;
+}
+
+.blog-post-image {
+    height: 135px;
+    width: 200px; 
+    /* This is good to get the image to fill the container without stretching,etc */
+    object-fit: cover;
+    border: solid black 1px;
+}
+
+.blog-post-title {
+    padding-top: 13px;
+    font-weight: bold;
+}
+
+.add-blog {
+    width: 100%;
+    padding: 0.8em;
+    padding-top: 15px;
+    background-color: #343a40;
+    color: white;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.add-blog:hover {
+    /* When hover over the add blog button it will sligtly change color */
+    background-color:#26292c;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+
+

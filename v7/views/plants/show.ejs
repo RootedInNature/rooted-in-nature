@@ -1,0 +1,85 @@
+<% include ../partials/header %>   
+    <!-- Information about plant -->
+    <!-- Note that container-fluid fills the whole background while 'container' leavs some margein on the sides -->
+    <div class="container-fluid plant-background plant-container plant">
+        <!-- 
+            Make a row to dilineate a grid system
+            - justify-content to place the content horizontally
+            - p is for padding, m is for margin, t=top,b=bottom, l=left,r=right
+        -->
+        <div class="container">
+            <div class="row justify-content-center pt-1 pb-1 plant-image-container">
+                <img class="plant-image" src='<%= plant.image %>' alt="<%=plant.genus%> <%=plant.species%> Image">
+            </div>
+            <div class="row justify-content-center pt-5 pb-4">
+                <h1><%=plant.genus%> <%=plant.species%></h1>
+            </div>
+
+
+            <div class="row justify-content-start pt-1">
+                <article>BODY</article>
+            </div>
+
+            <div class="row justify-content-start pt-3">
+                <p><em>Submitted By</em> <%=plant.author.username %></p>
+            </div>
+
+
+            
+
+    
+            <div class="plant-comments-container row d-flex flex-column">
+                <!-- Print out the comments made by the users by looping through array of
+                                comment objects -->
+                <h5>COMMENTS</h5>
+                <% plant.comments.forEach((comment)=>{%>
+                <div class="plant-comments-container media">
+                    <div class="row media-body">
+                        <div class="col-sm-3">
+                            <h2><strong><%= comment.author.username %></strong></h2>
+                        </div>
+                        <div class="col-sm-9">
+            
+                            <p><%=comment.date.toDateString()%></p>
+            
+                            <p><%=comment.comment%></p>
+            
+                            <!-- EDIT and DELETE BUTTONS IF USER OWNS COMMENT -->
+                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                <div class="row mt-3 plant-comments-edit-delete-button-container">
+                                    <a href="/plants/<%=plant._id%>/comments/<%=comment._id%>/edit" class="btn btn-primary mr-2 btn-sm plant-comments-edit-button">EDIT COMMENT</a>
+                                    <form action="/plants/<%=plant._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                        <input class="btn btn-primary btn-sm plant-comments-delete-button" type="submit" value="DELETE COMMENT">
+                                    </form> 
+                                </div>
+                            <% }; %>
+                        </div>
+                    </div>
+            
+                </div>
+            
+                <% }); %>
+                <div class="plant-post-comment-background-button">
+                    <div class="plant-edit-delete-buttons-container">
+                        <% if(currentUser && plant.author.id.equals(currentUser._id)){ %>
+                        <!-- 
+                                        - EDIT, DELETE (FORM)
+                                        - Show only when user logged in
+                                        -->
+                        <a class="btn btn-primary btn-sm plant-comments-delete-button" href="/plants/<%=plant._id%>/edit">EDIT PLANT</a>
+                        <form action="/plants/<%=plant._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-primary btn-sm plant-comments-delete-button">DELETE PLANT</button>
+                        </form>
+                    
+                        <%};%>
+                    </div>
+                    <% if(currentUser){ %>
+                        <a href="/plants/<%=plant._id%>/comments/new" class="plant-add-comment btn btn-primary btn-sm">NEW COMMENT</a>
+                    <% } %>
+                    <!-- <button class="btn btn-primary ml-2 btn-sm change-plant-background plant-post-change-background">CHANGE BACKGROUND</button> -->
+
+                </div>
+            </div>
+        </div>
+    </div> 
+<% include ../partials/footer %>

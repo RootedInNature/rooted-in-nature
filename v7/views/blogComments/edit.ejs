@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+<div class="blog-comment-edit-form-container">
+    <a class="back-button" href="/blogs/<%=blog_id%>">BACK</a>
+    <form class="blog-comment-edit-form" action="/blogs/<%= blog_id %>/blogComments/<%= comment._id %>?_method=PUT" method="POST">
+        <div class="container">
+            <h2>Edit Comment</h2>
+            <input type="text" class="form-control" name="comment[comment]" value="<%= comment.comment%>">
+            <button class="btn btn-sm btn-dark mt-2">Submit</button>
+
+        </div>
+
+    </form>
+</div>
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,42 @@
+html,body {
+    height: 100vh;
+    width: 100vw;
+    
+}
+/* Home page styling */
+
+.home-descriptions {
+  display: flex; /* Makes it so the nav bar is right on top of picture area*/
+  text-align: center;
+  color: white;
+}
+
+#about-home-descriptions {
+  width: 100%; /* Makes background image completely fill page*/
+  height: 81vh;
+  
+  /* Holds the image of the background */
+  background-image: url('https://imgur.com/r6O1XjK.jpg');
+  background-size: cover; /* Makes image cover whole background*/
+}
+
+.logo {
+    width: 100%; /* Makes background image completely fill page*/
+    height: 81vh;
+    background-color: black;
+}
+
+.logo img {
+  margin-top: 15%;
+}
+
+
+
+
+
+
+
+
+
+
+
