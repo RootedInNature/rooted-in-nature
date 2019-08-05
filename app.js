@@ -9,6 +9,7 @@ var express       = require('express'),
     LocalStrategy = require('passport-local'),
     flash = require('connect-flash');
 
+const DATABASEURL = "mongodb+srv://roootedinnature:tacotuesday@cluster0-ekhlc.mongodb.net/test?retryWrites=true&w=majority";
 // METHOD-OVERRIDE
 var methodOverride = require('method-override');
 
@@ -75,7 +76,15 @@ app.use(function (req, res, next) {
 app.use(methodOverride('_method'));
 
 // CONNECT THE DATABASE RUNNING ON DEFAULT PORT 27017
-mongoose.connect("mongodb://localhost:27017/rin_practice"),{ useNewUrlParser: true }; 
+mongoose.connect(process.env.DATABASEURL,{
+    useNewUrlParser: true,
+    useCreateIndex: true
+}).then(() => {
+        console.log("Connected to DB!");
+    }).catch(err => {
+        console.log("Error: ", err.message);
+    });
+; 
 
 // USE BODY PARSER TO GET FORM BODY
 app.use(bodyParser.urlencoded({
