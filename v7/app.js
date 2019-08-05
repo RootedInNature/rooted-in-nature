@@ -99,7 +99,9 @@ app.use('/blogs',blogRoutes);
 // plantSeedDB();
 // blogSeedDB();
 
-app.listen(3000,(req,res) => {
-    // Set the server where browsers and API can connect
-    console.log('SERVER STARTED');
-});
+let port = process.env.PORT;
+// In this case, the server will listen on port 8000 if the PORT environment variable isn’t set.
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
