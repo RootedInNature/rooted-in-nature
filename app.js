@@ -108,9 +108,7 @@ app.use('/blogs',blogRoutes);
 // plantSeedDB();
 // blogSeedDB();
 
-let port = process.env.PORT;
-// In this case, the server will listen on port 8000 if the PORT environment variable isn’t set.
-if (port == null || port == "") {
-  port = 3000;
-}
-app.listen(port);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${PORT}`);
+});
