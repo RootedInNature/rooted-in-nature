@@ -11,6 +11,7 @@ var middleware = require('../middleware');
 router.get('/',(req,res)=>{
     // List all blogs
     Blog.find({}, (err, theBlogs)=>{
+        console.log('I"m here')
         err ? res.redirect('/') : res.render('blogs/index', { blogs: theBlogs, currentUser: req.user  })
     });
 
