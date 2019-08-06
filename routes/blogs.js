@@ -8,9 +8,9 @@ var Blog = require('../models/blog');
 var middleware = require('../middleware');
 
 // INDEX ROUTE /blogs --> Blog.find()
-router.get('/',(req,res)=>{
+router.get('/',async (req,res)=>{
     // List all blogs
-    Blog.find({}, (err, theBlogs)=>{
+    await Blog.find({}, (err, theBlogs)=>{
         console.log('I"m here')
         err ? res.redirect('/') : res.render('blogs/index', { blogs: theBlogs, currentUser: req.user  })
     });
