@@ -9,17 +9,20 @@
     -->
         <div class="container">
             <div class="row justify-content-center pt-5 pb-4">
-                <h1><%=blog.title%></h1>
+                <h1 style="font-weight: 700"><%=blog.title%></h1>
             </div>
             <div class="row justify-content-center pt-1 pb-1 blog-image-container">
                 <img class="blog-image" src="<%=blog.image%>" alt="">
             </div>
-            <div class="row justify-content-start pt-3">
-                <p><%=blog.date.toDateString()%></p>
+            <div class="blog-text-container">
+                <div class="row justify-content-start pt-3">
+                    <p><%=blog.date.toDateString()%></p>
+                </div>
+                <div class="row justify-content-start pt-1 blog-body">
+                    <p><%-blog.body%></p>
+                </div>
             </div>
-            <div class="row justify-content-start pt-1">
-                <article><%-blog.body%></article>
-            </div>
+            
         <!-- Make it flex column so the comments line up top to bottom -->
             <div class="blog-post-comments-container row d-flex flex-column">
                 <!-- Print out the comments made by the users by looping through array of
@@ -61,7 +64,7 @@
                     <% }; %>
                     <a class="btn btn-primary ml-2 btn-sm blog-post-add-comment" href="/blogs/<%=blog._id%>/edit">EDIT BLOG</a>
                     <form action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
-                        <button class="btn btn-primary ml-2 btn-sm blog-post-add-comment">DELETE</button>
+                        <button class="btn btn-primary ml-2 btn-sm blog-post-add-comment delete-button">DELETE</button>
                     </form>
 
                     <button class="btn btn-primary ml-2 btn-sm change-background blog-post-change-background">CHANGE BACKGROUND</button>

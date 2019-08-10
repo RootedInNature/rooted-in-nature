@@ -17,7 +17,9 @@
                 <img alt="<%=plant.genus%> <%=plant.species%> Image" class="plant-card-img-top" src="<%=plant.image%>">
                 <div class="plant-card-body">
                     
-                    <h6 class="card-title"><%=plant.genus%> <%=plant.species%></h4>
+                    <h6 class="card-title"><%=plant.genus%> <%=plant.species%></h6>
+                    <p style="font-size: 12px;" class="card-title"><%=plant.commonName%></p>
+
                     <a href="/plants/<%=plant._id%>" class="btn btn-primary">READ MORE</a>
                 </div>
             </div>

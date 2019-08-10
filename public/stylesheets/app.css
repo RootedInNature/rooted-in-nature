@@ -29,8 +29,15 @@ html,body {
 }
 
 .logo img {
-  width: 100vw;
+ 
   margin-top: 15%;
+}
+
+@media(max-width:600px){
+  .logo img {
+    width: 100vw;
+  }
+  
 }
 
 

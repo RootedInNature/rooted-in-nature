@@ -12,18 +12,18 @@
                 <img class="plant-image" src='<%= plant.image %>' alt="<%=plant.genus%> <%=plant.species%> Image">
             </div>
             <div class="row justify-content-center pt-5 pb-4">
-                <h1><%=plant.genus%> <%=plant.species%> "<%=plant.commonName%>"</h1>
+                <h1 class="plant-header"><%=plant.genus%> <%=plant.species%> "<%=plant.commonName%>"</h1>
             </div>
             <div class="row pt-5 pb-4">
-                <h4>Family: <%=plant.family%></h4>
+                <h4><span style="font-weight: 800">Family:</span> <%=plant.family%></h4>
             </div>
-            <div class="row justify-content-start pt-1">
-                <h4>Description</h4>
-                <article><%=plant.description%></article>
+            <div class="row justify-content-start pt-1 d-block">
+                <h4 style="font-weight: 800">Description</h4>
+                <p><%-plant.description%></p>
             </div>
 
             <div class="row justify-content-start pt-3">
-                <p><em>Submitted by:</em> <%=plant.author.username %></p>
+                <p><em style="font-weight: 700">Submitted by:</em> <%=plant.author.username %></p>
             </div>
 
 

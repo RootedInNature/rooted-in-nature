@@ -1,6 +1,6 @@
 /* FOOTER */
 .footer {
-    background-color:  #8dcdbd !important;
+    background-color:   #2C3E50 !important;
     height: 130px; /* 15vh*/
     bottom: 0;
     display: flex;
@@ -11,6 +11,7 @@
 }
 .footer i {
     margin: 20px;
+    color: white;
 }
 
 .footer a{

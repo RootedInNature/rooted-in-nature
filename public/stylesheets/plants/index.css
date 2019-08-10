@@ -2,7 +2,7 @@
 .plant-box-container {
     height: 81%;
     width: 100%;
-    background-color:#e6d1e4;
+    background-color:rgb(215, 213, 223);
     display:flex;
     /* Allow plant boxes to start new row when needed */
     flex-wrap: wrap;
@@ -14,6 +14,9 @@
 }
 
 .plant-card-container{
+    -webkit-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+    box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
     width: 200px;
     height: 260px;
     margin-top: 0.8rem;

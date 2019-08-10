@@ -3,8 +3,8 @@
 /* UI gradient styles to toggle */
 .plant {
     background: #2C3E50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, rgb(189, 215, 241), rgb(124, 154, 184));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgb(189, 215, 241), rgb(124, 154, 184)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .plant1 {
@@ -32,23 +32,37 @@
     justify-content: center;
 }
 /* PLANT SHOW PAGE */
+
 .plant-comments-container h5{
     text-align: center;
     background-color: #2C3E50;
     color: white;
     margin:0;
+    -webkit-box-shadow: 14px -6px 36px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px -6px 36px -5px rgba(0,0,0,0.75);
+    box-shadow: 14px -6px 36px -5px rgba(0,0,0,0.75);
+
 }
 
 .plant-comments-container.media {
     border: solid #2C3E50 2px;
     border-top: none; 
     margin:0;
-    background-color: rgb(198, 220, 241)
+    background-color: rgb(198, 220, 241);
+    -webkit-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+    box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
 }
 
+.plant-header{
+    font-weight: 800;
+}
 .plant-image{
+    -webkit-box-shadow: 15px -9px 56px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 15px -9px 56px -16px rgba(0,0,0,0.75);
+    box-shadow: 15px -9px 56px -16px rgba(0,0,0,0.75);
     height: 350px;
-    border: solid #2C3E50 30px;
+    border: solid #2C3E50 15px;
     margin-top: 5%;
      
     

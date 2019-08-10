@@ -1,6 +1,30 @@
 /* Individual blog post styling */
+.blog-body img{
+    /* Add class to image inserted in body to float left */
+    float:left;
+    width: 30vw;
+    height: auto;
+    margin-right: 5px;
+    -webkit-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+    box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+ 
+}
+.blog-text-container{
+    margin-top: 30px;
+    
+}
 
+.blog-post-comments-container{
+    margin-top: 20px;
+    -webkit-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+    box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+}
 .blog-post-comments-container h5{
+    -webkit-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
+    box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
     text-align: center;
     background-color: #2C3E50;
     color: white;
@@ -17,8 +41,9 @@
 /* UI gradient styles to toggle */
 .blog {
     background: #2C3E50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #4CA1AF, rgb(93, 115, 138)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #2C3E50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgb(189, 215, 241), rgb(124, 154, 184));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgb(189, 215, 241), rgb(124, 154, 184)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .blog1 {
@@ -42,9 +67,11 @@
 }
 
 .blog-image{
+    -webkit-box-shadow: 15px -9px 56px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 15px -9px 56px -16px rgba(0,0,0,0.75);
+    box-shadow: 15px -9px 56px -16px rgba(0,0,0,0.75);
     height: 350px;
-    border: solid #2C3E50 30px;
-    
+    border: solid #2C3E50 15px; 
 }
 
 .blog-post-comments-edit-delete-button-container{
@@ -62,7 +89,23 @@
 .blog-post-comment-background-button{
     display:flex;
     justify-content: center;
+    
 }
+
+@media(max-width: 780px){
+    .blog-post-comment-background-button{
+        display:flex;
+        flex-wrap: wrap;
+    }
+}
+@media(max-width: 505px){
+    .blog-image{
+        width: 100vw;
+        height: auto;
+    }
+}
+
+
 .blog-post-add-comment, .blog-post-change-background{
     margin: 10px;
     background-color: #2C3E50 !important;
