@@ -29,7 +29,11 @@ router.post('/',middleware.isLoggedIn,(req,res)=>{
         genus: req.body.genus, 
         species: req.body.species, 
         image: req.body.image, 
-        author:author, 
+        author:author,
+        sepals:req.body.sepals,
+        pedals:req.body.pedals, 
+        stamens:req.body.stamens, 
+        carpels:req.body.carpels, 
         commonName:req.body.commonName,
         description: req.body.description,
         family: req.body.family
