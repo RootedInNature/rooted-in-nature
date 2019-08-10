@@ -4,9 +4,12 @@ var plantSchema = new mongoose.Schema({
     genus: String,
     species: String,
     image: String,
-    commonName: String,
-    description: String,
-    family: String,
+    commonName: {type: String,
+    default: ''},
+    description: {type: String,
+        default: ''},
+    family: {type: String,
+        default: ''},
     comments: [
         {
         type: mongoose.Schema.Types.ObjectId,
