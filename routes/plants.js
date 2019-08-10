@@ -30,7 +30,9 @@ router.post('/',middleware.isLoggedIn,(req,res)=>{
         species: req.body.species, 
         image: req.body.image, 
         author:author, 
-        commonName:req.body.commonName
+        commonName:req.body.commonName,
+        description: req.body.description,
+        family: req.body.family
     };
 
     Plant.create(newPlant, (err, plant) => {

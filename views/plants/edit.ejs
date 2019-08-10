@@ -8,6 +8,11 @@
                 <input type="text" class="form-control mb-1" name="plant[genus]" value="<%= plant.genus%>">
                 <input type="text" class="form-control" name="plant[species]" value="<%= plant.species %>">
                 <input type="text" class="form-control" name="plant[commonName]" value="<%= plant.commonName %>">
+                <input type="text" class="form-control" name="plant[family]" value="<%= plant.family %>">
+                    <div class="form-group">
+                        <label for="formBody">BODY</label>
+                        <textarea class="form-control" id="formBody" name="plant[description]" ><%= plant.description %></textarea>
+                    </div>
                 <button class="btn btn-sm btn-dark mt-2">Submit</button>
             </div>
 

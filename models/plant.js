@@ -5,6 +5,8 @@ var plantSchema = new mongoose.Schema({
     species: String,
     image: String,
     commonName: String,
+    description: String,
+    family: String,
     comments: [
         {
         type: mongoose.Schema.Types.ObjectId,

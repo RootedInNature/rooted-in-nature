@@ -50,7 +50,14 @@
     height: 350px;
     border: solid #2C3E50 30px;
     margin-top: 5%;
+     
     
+}
+
+@media(max-width: 544px){
+    .plant-image{
+        width: 90vw;
+    }
 }
 
 .plant-edit-delete-buttons-container{

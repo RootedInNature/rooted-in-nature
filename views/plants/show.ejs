@@ -14,14 +14,16 @@
             <div class="row justify-content-center pt-5 pb-4">
                 <h1><%=plant.genus%> <%=plant.species%> "<%=plant.commonName%>"</h1>
             </div>
-
-
+            <div class="row pt-5 pb-4">
+                <h4>Family: <%=plant.family%></h4>
+            </div>
             <div class="row justify-content-start pt-1">
-                <article></article>
+                <h4>Description</h4>
+                <article><%=plant.description%></article>
             </div>
 
             <div class="row justify-content-start pt-3">
-                <p><em>Submitted By</em> <%=plant.author.username %></p>
+                <p><em>Submitted by:</em> <%=plant.author.username %></p>
             </div>
 
 
