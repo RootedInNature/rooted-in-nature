@@ -2,7 +2,7 @@
 .plant-box-container {
     height: 81%;
     width: 100%;
-    background-color:#4CA1AF;
+    background-color:#e6d1e4;
     display:flex;
     /* Allow plant boxes to start new row when needed */
     flex-wrap: wrap;

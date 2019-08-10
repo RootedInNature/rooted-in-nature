@@ -23,10 +23,13 @@ html,body {
 .logo {
     width: 100%; /* Makes background image completely fill page*/
     height: 81vh;
+    width: 100vw;
+    
     background-color: black;
 }
 
 .logo img {
+  width: 100vw;
   margin-top: 15%;
 }
 

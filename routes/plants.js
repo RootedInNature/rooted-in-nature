@@ -25,7 +25,13 @@ router.post('/',middleware.isLoggedIn,(req,res)=>{
         id: req.user._id,
         username: req.user.username
     };
-    var newPlant = { genus: req.body.genus, species: req.body.species, image: req.body.image, author:author};
+    var newPlant = { 
+        genus: req.body.genus, 
+        species: req.body.species, 
+        image: req.body.image, 
+        author:author, 
+        commonName:req.body.commonName
+    };
 
     Plant.create(newPlant, (err, plant) => {
         err ? console.log(err):res.redirect('/plants');
