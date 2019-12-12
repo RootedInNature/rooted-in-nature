@@ -10,7 +10,7 @@
     overflow: auto;
 
     /* Place the cards in the center of the screen */
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .plant-card-container{
