@@ -7,14 +7,13 @@
 }
 /************************* CONTAINER FOR WHOLE PAGE ****************************/
 .blog-index-container {
+   
+    top: 40px;
     height: 81vh; /* Sets the height in between header and footer*/
-    display: flex;
+    display: block;
     /* So items will go beneath eachother */
-    flex-wrap: wrap; 
-    /* So header stays ceneered */
-    justify-content:center;
-    align-content: flex-start;
-    overflow: auto;
+
+    
     background-color:rgb(184, 213, 241);
 }
 
@@ -26,7 +25,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color:  rgb(72, 75, 233);
+    background-color:  rgb(25, 98, 255);
     margin: 0;
     height: 15vh;
 }
@@ -38,6 +37,7 @@
 /* SINGLE POST CONTAINER */
 .blog-post-container {
     height:175px;
+    width: 100%;
     
    
      
@@ -51,13 +51,18 @@
     background: rgb(166, 204, 240);
 }
 
-
+.blog-post-content-container{
+    width: 100%;
+}
 /* BLOG PREVIEW IMAGE */
 .blog-post-image-container {
     /* Pad the image on left and right */
     padding: 20px;
+    width: 200px;
 }
-
+.blog-row{
+    display: flex;
+}
 .blog-post-image {
     height: 135px;
     width: 200px; 
@@ -88,8 +93,6 @@
     text-decoration: none;
     color: white;
 }
-
-
 
 
 

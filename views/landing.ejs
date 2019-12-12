@@ -1,19 +1,15 @@
 <% include partials/header %>
 
-<div class="home-descriptions">
-    <!-- This will hold a scroll sideways section, with an image behind and
-        descriptions of each section-->
-    <div class="logo">
-        <img src="https://i.imgur.com/7oX2AEA.png" alt="">
+
+    <div id="landing-page-container">
+
+        <% let rectWidth = [10,18,30,60,50,70,90,65,55,30,15,5,2,4,7,20,40,20,10,15]; %>
+            <% for(let x = rectWidth.length-1; x>=0; x--){ %>
+                <div class="rectangle" style="width:<%=rectWidth[x]%>vw;height:15px;"></div>
+            <%}%>
+            
+        <div id="landing-main-page">Where science meets nature...</div>
     </div>
-    <!--<div id="about-home-descriptions">
-        <h1>ABOUT</h1>
-        Description of the page with a picture behind
-        <p>The goal of this website is to hopefully allow people to see math, programming
-            and nature can be one in the same. I hope to encourage people to go outside
-            and see the beauty of the world while also taking into account where the future
-            is headed. </p>
-    </div>-->
-</div>
+
 
 <% include partials/footer %>

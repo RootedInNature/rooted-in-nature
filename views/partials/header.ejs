@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ROOTED IN NATURE</title>
 
+    <!-- HEADER -->
+    <link rel="stylesheet" href="/stylesheets/landing.css">
+    
     <!------------------------------- HEADER/FOOTER --------------------------->
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
@@ -17,12 +21,14 @@
     <link rel="stylesheet" href="/stylesheets/login.css">
     <!-- REGISTER -->
     <link rel="stylesheet" href="stylesheets/register.css">
-
+    
     <!------------------------ PLANT STYLESHEETS ------------------------------->
     <link rel="stylesheet" href="/stylesheets/plants/show.css">
     <link rel="stylesheet" href="/stylesheets/plants/edit.css">
     <link rel="stylesheet" href="/stylesheets/plants/index.css">
     <link rel="stylesheet" href="/stylesheets/plants/new.css">
+    <link rel="stylesheet" href="/stylesheets/plants/dropdown.css">
+
     <!-- PLANT COMMENTS -->
     <link rel="stylesheet" href="/stylesheets/comments/new.css">
     <link rel="stylesheet" href="/stylesheets/comments/edit.css">
@@ -35,74 +41,87 @@
     <link rel="stylesheet" href="/stylesheets/blogComments/new.css">
     <link rel="stylesheet" href="/stylesheets/blogComments/edit.css">
     
+  
 
-    <!-- CSS BOOTCAMP LINK -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- D3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"></script>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+
 
 </head>
 
 <body>
+    <div class="page-header">(RootedInNature)<sup>2</sup></div>
+    <svg width="100vw" height="260px" id="navbar-svg">
+
+    </svg>
+    <nav class="navbar">
 
 
-    <!-- HEADER OF PAGE -->
-    <!-- IMPORTANT - see how you defined using only the header in '/' using req.route
-    Do this for the color of the header -->
-    <!-- <% if(typeof route != "undefined" ){ %>
-
-    <header class="jumbotron mb-0">
-        <img src="https://imgur.com/uBnLSbI.png" alt="">
-    </header>
-    <%} %> -->
-
-    <!-- 
-        - navbar-expand-lg will align everyting in the navbar to the left
-        - Use 'navbar' to initialize the navbar
-        - 'navbar-brand' for a branding
-        - 'nav-link' will cause spread between the items in the navbar
-        - 'navbar-light' to remove the blue links
-     -->
-    <nav class="navbar navbar-expand-lg d-flex flex-row navbar-dark justify-content-between text-white">
-
-        <div class="left-links navbar-nav">
-            <a href="/" class="navbar-brand">(RootedInNature)<sup>2</sup></a>
-            <a href="/blogs" class="nav-item nav-link">Blogs</a>
-            <a href="/plants" class="nav-item nav-link">Plants</a>
-        </div>
-
-        <div class="right-links navbar-nav ">
-            <%if(!currentUser){%>
-            <a href="/login" class="nav-item nav-link text-white">Login</a>
-            <a href="/register" class="nav-item nav-link">Register</a>
-            <%}else{%>
-            <a class="nav-item nav-link">Signed In As <%=currentUser.username%></a>
-            <a href="/logout" class="nav-item nav-link">Logout</a>
-            <%}%>
+        <div class="navbar-links">
+            <div class='navbar-item-container'><a href="/">
+                    <div class="navbar-item">Home</div>
+                </a></div>
+            <div class='navbar-item-container'><a href="/blogs">
+                    <div class="navbar-item">Blogs</div>
+                </a></div>
+            <div class='navbar-item-container'>
+                <a>
+                    <div class="navbar-item" id="navbar-plants">
+                        Plants
+                    </div>
+                </a>
+                <div id="plant-dropdown" class="plant-dropdown-hidden">
+                    <a href="/plants/new">
+                        <div class="p-item plant-dropdown-item-hidden">CREATE</div>
+                    </a>
+                    <a href="/plants">
+                        <div class="p-item plant-dropdown-item-hidden">VIEW</div>
+                    </a>
+                    <a href="#">
+                        <div class="p-item plant-dropdown-item-hidden">KEYS</div>
+                    </a>
+                </div>
+            </div>
+            <div class="right-links">
+                <%if(!currentUser){%>
+                <a href="/login" class="">Login</a>
+                <a href="/register" class="">Register</a>
+                <%}else{%>
+                <a id="signed-in-text">Signed In As '<%=currentUser.username%>'</a>
+                <a href="/logout" class="">Logout</a>
+                <%}%>
             </div>
 
+
+        </div>
+
+
         
-    
+                
+            
+        
+            
+            <div class="container p-0 m-0" style="width:100vw;" >
+                <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger m-0" style="width:100vw;" role="alert">
+                <%= error %>
+            </div>
+            <% } %>
+            <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+            <% } %>
+        </div> 
 
     </nav>
-    
-    <div class="container p-0 m-0" style="width:100vw;" >
-        <% if(error && error.length > 0){ %>
-        <div class="alert alert-danger m-0" style="width:100vw;"role="alert">
-            <%= error %>
-        </div>
-        <% } %>
-        <% if(success && success.length > 0){ %>
-        <div class="alert alert-success" role="alert">
-            <%= success %>
-        </div>
-        <% } %>
-    </div>
-
-
-
 
 
 
