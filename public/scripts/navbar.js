@@ -3,10 +3,10 @@ let plantDropdown = document.getElementById('plant-dropdown');
 let plantDropdownItems = document.querySelectorAll('.p-item');
 
 plantButton.addEventListener('click',()=>{
-    plantDropdown.classList.toggle('plant-dropdown-hidden');
+    plantDropdown.classList.toggle('dropdown-hidden');
     plantDropdownItems.forEach((item)=>{
-        item.classList.toggle('plant-dropdown-item-hidden');
-        item.classList.toggle('plant-dropdown-item');
+        item.classList.toggle('dropdown-item-hidden');
+        item.classList.toggle('dropdown-item');
     })
 });
 

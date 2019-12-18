@@ -73,18 +73,18 @@ app.use(function (req, res, next) {
 app.use(methodOverride('_method'));
 
 // // CONNECT THE DATABASE RUNNING ON DEFAULT PORT 27017
-// mongoose.connect("mongodb://localhost:27017/rin-final"),{ useNewUrlParser: true }; 
+mongoose.connect("mongodb://localhost:27017/rin-final"),{ useNewUrlParser: true }; 
 
 // CONNECT THE DATABASE RUNNING ON DEFAULT PORT 27017
-mongoose.connect(process.env.DATABASEURL,{
-    useNewUrlParser: true,
-    useCreateIndex: true
-}).then(() => {
-        console.log("Connected to DB!");
-    }).catch(err => {
-        console.log("Error: ", err.message);
-    });
-; 
+// mongoose.connect(process.env.DATABASEURL,{
+//     useNewUrlParser: true,
+//     useCreateIndex: true
+// }).then(() => {
+//         console.log("Connected to DB!");
+//     }).catch(err => {
+//         console.log("Error: ", err.message);
+//     });
+// ; 
 
 // USE BODY PARSER TO GET FORM BODY
 app.use(bodyParser.urlencoded({
