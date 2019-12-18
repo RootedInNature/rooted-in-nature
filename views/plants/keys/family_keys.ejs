@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div><%=key_obj['group']%></div>
+    <div><%=key_obj['name']%></div>
+    <div id="key-choice-container">
+        <div><%=key_obj['key'][key_val]['a']['sentence']%> 
+                <% if(parseInt(key_obj['key'][key_val]['a']['result'])){ %>
+                    <!-- If integer then this leads to another set of binomial sentences -->
+                    <a href="?key_val=<%= key_obj['key'][key_val]['a']['result'] %>"><%= key_obj['key'][key_val]['a']['result'] %></a>
+                <% }else{ %>
+                    <!-- If its a word, then load the family page associated -->
+                    <a href="../families/<%= key_obj['key'][key_val]['a']['result'] %>"><%= key_obj['key'][key_val]['a']['result'] %></a>
+                <% } %>
+            </div>
+
+        <div><%=key_obj['key'][key_val]['b']['sentence']%> 
+            <% if(parseInt(key_obj['key'][key_val]['b']['result'])){ %>
+                <a href="?key_val=<%=key_obj['key'][key_val]['b']['result'] %>">
+                    <%= key_obj['key'][key_val]['b']['result'] %></a></div>
+                <% }else{ %>
+                    <a href="../families/<%= key_obj['key'][key_val]['b']['result'] %>"><%= key_obj['key'][key_val]['b']['result'] %></a>
+                <% } %>
+    </div>
+  
+    
+</body>
+</html>

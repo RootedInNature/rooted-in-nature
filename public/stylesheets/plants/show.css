@@ -1,142 +1,117 @@
 
-
-/* UI gradient styles to toggle */
-.plant {
-    background: #2C3E50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, rgb(189, 215, 241), rgb(124, 154, 184));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, rgb(189, 215, 241), rgb(124, 154, 184)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.show-page-container{
+    padding-top: 20px;
+    background-color: lightgray;
 }
-
-.plant1 {
-    background: #42275a;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.show-page-inner-container{
+    display: flex;
+    flex-direction: column;
 }
-
-.plant2 {
-    background: #2C3E50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FD746C, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FD746C, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+.image-container{
+    align-self: center;
 }
-
-.plant3 {
-    background: #3a7bd5;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3a6073, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-
-.plant-post-comment-background-button{
-    display:flex;
-    justify-content: center;
-}
-/* PLANT SHOW PAGE */
-
-.plant-comments-container h5{
-    text-align: center;
-    background-color: #2C3E50;
-    color: white;
-    margin:0;
-    -webkit-box-shadow: 14px -6px 36px -5px rgba(0,0,0,0.75);
-    -moz-box-shadow: 14px -6px 36px -5px rgba(0,0,0,0.75);
-    box-shadow: 14px -6px 36px -5px rgba(0,0,0,0.75);
-
-}
-
-.plant-comments-container.media {
-    border: solid #2C3E50 2px;
-    border-top: none; 
-    margin:0;
-    background-color: rgb(198, 220, 241);
-    -webkit-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
-    -moz-box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
-    box-shadow: 14px -1px 43px -15px rgba(0,0,0,0.75);
-}
-
-.plant-header{
-    font-weight: 800;
-}
-.plant-image{
+.image{
     -webkit-box-shadow: 15px -9px 56px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: 15px -9px 56px -16px rgba(0,0,0,0.75);
     box-shadow: 15px -9px 56px -16px rgba(0,0,0,0.75);
-    height: 350px;
-    border: solid #2C3E50 15px;
-    margin-top: 5%;
-     
-    
+    height: 300px;
+    border: solid rgb(117, 123, 130) 5px;
+    margin-top: 4%;
+}
+.content-container{
+    padding: 2%;
+}
+.header{
+    font-weight: 800;
+    text-align: end;
+    padding-right: 2%;padding-top:2%;
+}
+.content-value-container{
+    color: white;
+    background-color: rgb(117, 123, 130);
+    padding: 20px 30px;;
+    padding-left: 30px;;
+    margin-left: -30px;
+    width: 100%;
 }
 
-@media(max-width: 544px){
-    .plant-image{
-        width: 90vw;
-    }
+/**************************** COMMENTS ***************************************/
+.comments-container h5{
+    text-align: center;
+    background-color: rgb(117, 123, 130);
+    color: white;
+    margin:0;
+    margin-top: 10px;
+    padding: 5px 0;
 }
 
-.plant-edit-delete-buttons-container{
+.comment-row{
+    display: grid;
+    grid-template-columns: 170px 90%;
+    padding: 0 30px;
+    border-bottom: 1px rgb(117, 123, 130) solid;
+}
+.comment-column-left{
+    grid: 1/2;
+    border-right: 1px rgb(117, 123, 130) solid;
+}
+.comment-column-right{
+    grid: 2/3;
+    padding: 10px 20px;
+}
+
+.edit-delete-buttons-container{
     display:flex;
     padding: 10px 10px 10px 0;
     justify-content: flex-end;
-    
-    
 }
 
-
-.plant-edit-delete-buttons-container a{
-    margin-right: 10px;
-    
-}
-
-.plant-comments-edit-delete-button-container{
+.comments-edit-delete-button-container{
     display:flex;
     padding-bottom: 10px;
     justify-content: flex-end;
     padding-right: 20px;
 }
-
-.plant-comments-edit-button, .plant-comments-delete-button{
-    background-color: #2C3E50 !important;
-    border: #2C3E50 !important;
-}
-
-.plant-comment-background-button{
-    display:flex;
-    justify-content: center;
-}
-.plant-add-comment, .plant-change-background{
-    margin: 10px;
-    background-color: #2C3E50 !important;
-    border: #2C3E50 !important;
+.comments-edit-delete-button-container a,input {
+    all:unset;
     color: white;
-    
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-size: 14px;
+
+}
+.comments-edit-button, .comments-delete-button{
+    background-color:  rgb(117, 123, 130);
+    border:  rgb(117, 123, 130);
+    color: white;
+
 }
 
-.plant-edit-delete-buttons-container{
+.post-comment-button-container{
     display:flex;
     justify-content: center;
-
 }
 
-
-.plant-post-add-comment, .plant-post-change-background{
-    margin: 10px;
-    background-color: #2C3E50 !important;
-    border: #2C3E50 !important;
-    
-}
-
-#back-button{
-    margin-left: 20px;
-    font-family: 'VT323', monospace;
-    color: #2C3E50 ;
-    font-size: 25px;
-    text-decoration: none;
+.post-comment-button-container a,input{
+    all: unset;
+    background-color:  rgb(117, 123, 130);
+    color: white;
     padding: 5px;
-    border: 1px solid#2C3E50 ;
-    margin-top: 20px;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-size: 14px;
+
 }
-#back-button-container{
-    padding: 10px;
-    height: 50px;
+
+/*********************** BLOG SPECIFIC SHOW STYLE *****************************/
+#blog-header{
+    background-color:  rgb(117, 123, 130);
+    margin: 30px 0;
+    padding: 20px 0;
+    color: lightgray;
+    text-transform: uppercase;
 }
+
+
+

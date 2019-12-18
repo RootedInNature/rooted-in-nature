@@ -20,13 +20,18 @@
     <!-- LOGIN STYLESHEET -->
     <link rel="stylesheet" href="/stylesheets/login.css">
     <!-- REGISTER -->
-    <link rel="stylesheet" href="stylesheets/register.css">
+    <link rel="stylesheet" href="/stylesheets/register.css">
     
+    <!------------------------ BUTTONS ------------------------------->
+    <link rel="stylesheet" href="/stylesheets/buttons/back-button.css">
+
+    <!------------------------ FORMS------------------------------->
+    <link rel="stylesheet" href="/stylesheets/forms/edit-create-new-form.css">
+
     <!------------------------ PLANT STYLESHEETS ------------------------------->
     <link rel="stylesheet" href="/stylesheets/plants/show.css">
     <link rel="stylesheet" href="/stylesheets/plants/edit.css">
     <link rel="stylesheet" href="/stylesheets/plants/index.css">
-    <link rel="stylesheet" href="/stylesheets/plants/new.css">
     <link rel="stylesheet" href="/stylesheets/plants/dropdown.css">
 
     <!-- PLANT COMMENTS -->
@@ -37,15 +42,13 @@
     <link rel="stylesheet" href="/stylesheets/blogs/index.css">
     <link rel="stylesheet" href="/stylesheets/blogs/show.css">
     <link rel="stylesheet" href="/stylesheets/blogs/new.css">
+
     <!-- BLOG COMMENTS -->
     <link rel="stylesheet" href="/stylesheets/blogComments/new.css">
     <link rel="stylesheet" href="/stylesheets/blogComments/edit.css">
     
-  
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
     <!-- D3 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"></script>
@@ -62,8 +65,6 @@
 
     </svg>
     <nav class="navbar">
-
-
         <div class="navbar-links">
             <div class='navbar-item-container'><a href="/">
                     <div class="navbar-item">Home</div>
@@ -89,6 +90,9 @@
                     </a>
                 </div>
             </div>
+            <div class='navbar-item-container'><a href="/math">
+                    <div class="navbar-item">Math</div>
+                </a></div>
             <div class="right-links">
                 <%if(!currentUser){%>
                 <a href="/login" class="">Login</a>
@@ -102,13 +106,7 @@
 
         </div>
 
-
-        
-                
-            
-        
-            
-            <div class="container p-0 m-0" style="width:100vw;" >
+        <div class="container p-0 m-0" style="width:100vw;" >
                 <% if(error && error.length > 0){ %>
             <div class="alert alert-danger m-0" style="width:100vw;" role="alert">
                 <%= error %>

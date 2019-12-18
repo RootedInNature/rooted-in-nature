@@ -1,41 +1,22 @@
 <% include ../partials/header %>
-
-<div class="plant-box-container">
-    <!-- Go through each plant from the database and apply the box to them -->
-
-        <% plants.forEach(function(plant){ %>
-        <!-- 
-                    Flexible boxes where when screen is large it can fit 4 across
-                    - When medium or small then can only fit 2
-                 -->
-        <div class="column col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
-            <!-- Bootstrap card made for each individual plant with picture 
-                    on top then genus/species below -->
-            
-            <div class="plant-card-container">
-                
-                <img alt="<%=plant.genus%> <%=plant.species%> Image" class="plant-card-img-top" src="<%=plant.image%>">
-                <div class="plant-card-body">
-                    
-                    <h6 class="card-title"><%=plant.genus%> <%=plant.species%></h6>
-                    <p style="font-size: 12px;" class="card-title"><%=plant.commonName%></p>
-
-                    <a href="/plants/<%=plant._id%>" class="btn btn-primary">READ MORE</a>
+    <div class="plant-box-container">
+        <!-- Go through each plant from the database and apply the box to them -->
+            <% plants.forEach(function(plant){ %>
+                <div class="plant-card-container">
+                    <img alt="<%=plant.genus%> <%=plant.species%> Image" class="plant-card-img-top" src="<%=plant.image%>">
+                    <div class="plant-card-body">
+                        <h6 class="card-title"><%=plant.genus%> <%=plant.species%></h6>
+                        <p style="font-size: 12px;" class="card-title"><%=plant.commonName%></p>
+                        <a href="/plants/<%=plant._id%>" class="read-more-button">READ MORE</a>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-    <% }); %>
-
-</div>
+        <% }); %>
+    </div>
         
-        <% if(currentUser){ %>
-        <a href="/plants/new" class="add-blog">
-            <h5>ADD PLANT</h5>
-        </a>
-        <% } %>
-
-
-
+    <% if(currentUser){ %>
+    <a href="/plants/new" class="add-blog">
+        <h5>ADD PLANT</h5>
+    </a>
+    <% } %>
 <% include ../partials/footer %>
 

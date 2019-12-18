@@ -31,10 +31,7 @@ body{
     font-family: 'VT323', monospace;
     font-size: 25px;
 }
-.navbar-item-container{
 
-    
-}
 .navbar-links{
     display: flex;
     justify-content: flex-start;

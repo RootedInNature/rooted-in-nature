@@ -7,6 +7,7 @@ var Plant = require('../models/plant');
 // IMPORT MIDDLEWARE
 var middleware = require('../middleware');
 
+
 // INDEX ROUTE (/plants)
 router.get('/', (req,res) => {
     Plant.find({}, (err, foundPlants) => {
@@ -72,5 +73,31 @@ router.delete('/:id', middleware.checkPlantOwnership, (req, res) => {
         err ? res.redirect('/plants') : res.redirect('/plants');
     });
 });
+
+/************************ KEYS *********************************/
+
+// IMPORT PLANT KEYS
+var fernKey = require('../public/scripts/plant_keys/ferns');
+
+// Used to hold all keys
+let keys = { ferns: fernKey };
+
+router.get('/families',(req,res)=>{
+
+});
+
+router.get('/families/:family', (req, res) => {
+    res.render('plants/families/family.ejs', { family: req.params.family });
+});
+
+router.get('/keys/:family',(req,res)=>{
+    let key_val = req.query.key_val || 01; // Take the query parameter and access the binomial key
+    let family = req.params.family;
+    let key_obj = keys[family]
+    console.log(req.query.key_val);
+    res.render('plants/keys/family_keys',{ key_obj, family, key_val});
+});
+
+
 
 module.exports = router;

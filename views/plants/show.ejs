@@ -1,127 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ROOTED IN NATURE</title>
-
-
-    <!------------------------------- HEADER/FOOTER --------------------------->
-
-    <link rel="stylesheet" href="/stylesheets/footer.css">
-
-    <!------------------------ PLANT STYLESHEETS ------------------------------->
-    <link rel="stylesheet" href="/stylesheets/plants/show.css">
-<!-- CSS BOOTCAMP LINK -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-    <!-- D3 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"></script>
-
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
-
-
-</head>
-
-<body>
+<% include ../partials/header %>
     <!-- Information about plant -->
     <!-- Note that container-fluid fills the whole background while 'container' leavs some margein on the sides -->
-    <div class="container-fluid plant-background plant-container plant">
-        <div id="back-button-container">
-            <a id="back-button" href="/plants/">BACK</a>
-        </div>
-        
-        <!-- 
-            Make a row to dilineate a grid system
-            - justify-content to place the content horizontally
-            - p is for padding, m is for margin, t=top,b=bottom, l=left,r=right
-        -->
-        <div class="container">
-            <div class="row justify-content-center pt-1 pb-1 plant-image-container">
-                <img class="plant-image" src='<%= plant.image %>' alt="<%=plant.genus%> <%=plant.species%> Image">
+    <div class="show-page-container">      
+        <a class="back-button" href="/plants/">BACK</a>
+        <div class="show-page-inner-container">
+            <div class="image-container">
+                <img class="image" src='<%= plant.image %>' alt="<%=plant.genus%> <%=plant.species%> Image">
             </div>
-            <div class="row justify-content-center pt-5 pb-4">
-                <h1 class="plant-header"><%=plant.genus%> <%=plant.species%> "<%=plant.commonName%>"</h1>
-            </div>
-            <div class="row pt-3 pb-4">
-                <h4><span style="font-weight: 800">Family:</span> <%=plant.family%></h4>
-            </div>
-            <div class="row pb-5">
-                <h4><span style="font-weight: 800">Floral Formula:</span> K<sup><%=plant.sepals%></sup>C<sup><%=plant.pedals%></sup>A<sup><%=plant.stamens%></sup>G<sup><%=plant.carpels%></sup></h4>
-            </div>
-            
-            <div class="row justify-content-start pt-1 d-block">
-                <h4 style="font-weight: 800">Description</h4>
-                <p><%-plant.description%></p>
+            <div class="content-container">
+                
+                <h1 class="header content-item"><%=plant.genus%> <%=plant.species%> "<%=plant.commonName%>"</h1>
+                <div class="content-value-container">
+                    <h4 class="content-item"><span style="font-weight: 800">Family:</span> <%=plant.family%></h4>
+                    <h4 class="content-item"><span style="font-weight: 800">Floral Formula:</span>
+                        K<sup><%=plant.sepals%></sup>C<sup><%=plant.pedals%></sup>A<sup><%=plant.stamens%></sup>G<sup><%=plant.carpels%></sup>
+                    </h4>
+                </div>
+                <h4 class="content-item">Description</h4>
+                <p class="content-item"><%-plant.description%></p>
+                <p class="content-item" style="text-align: end;font-size: small;"><em style="font-weight: 700;">Submitted by:</em> <%=plant.author.username %></p>
             </div>
 
-            <div class="row justify-content-end pt-3">
-                <p><em style="font-weight: 700">Submitted by:</em> <%=plant.author.username %></p>
-            </div>
-
-
-            
-
-    
-            <div class="plant-comments-container pt-4 row d-flex flex-column">
-                <!-- Print out the comments made by the users by looping through array of
-                                comment objects -->
+            <div class="comments-container">
+                <div class="post-comment-button-container">
+                    <div class="edit-delete-buttons-container">
+                        <% if(currentUser && plant.author.id.equals(currentUser._id)){ %>
+                        <!-- If own the plant -->
+                        <a class="comments-delete-button" href="/plants/<%=plant._id%>/edit">EDIT PLANT</a>
+                        <form action="/plants/<%=plant._id%>?_method=DELETE" method="POST">
+                            <input type="submit" class="comments-delete-button" value="DELETE PLANT">
+                        </form>
+                        <%};%>
+                        <% if(currentUser){ %>
+                        <a href="/plants/<%=plant._id%>/comments/new" class="add-comment">NEW COMMENT</a>
+                        <% } %>
+                    </div>
+                </div>
+                <!-- Print out the comments made by the users by looping through array of comment objects -->
                 <h5>COMMENTS</h5>
                 <% plant.comments.forEach((comment)=>{%>
-                <div class="plant-comments-container media">
-                    <div class="row media-body">
-                        <div class="col-sm-3">
-                            <h2><strong><%= comment.author.username %></strong></h2>
-                        </div>
-                        <div class="col-sm-9">
-            
-                            <p><%=comment.date.toDateString()%></p>
-            
-                            <p><%=comment.comment%></p>
-            
-                            <!-- EDIT and DELETE BUTTONS IF USER OWNS COMMENT -->
-                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-                                <div class="row mt-3 plant-comments-edit-delete-button-container">
-                                    <a href="/plants/<%=plant._id%>/comments/<%=comment._id%>/edit" class="btn btn-primary mr-2 btn-sm plant-comments-edit-button">EDIT COMMENT</a>
-                                    <form action="/plants/<%=plant._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
-                                        <input class="btn btn-primary btn-sm plant-comments-delete-button" type="submit" value="DELETE COMMENT">
-                                    </form> 
-                                </div>
-                            <% }; %>
+                    <div class="comments-container">
+                        <div class="comment-row">
+                            <div class="comment-column-left">
+                                <h2><strong><%= comment.author.username %></strong></h2>
+                            </div>
+                            <div class="comment-column-right">
+                                <p><%=comment.date.toDateString()%></p>
+                                <p><%=comment.comment%></p>
+                
+                                <!-- EDIT and DELETE BUTTONS IF USER OWNS COMMENT -->
+                                <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                    <div class="comments-edit-delete-button-container">
+                                        <a href="/plants/<%=plant._id%>/comments/<%=comment._id%>/edit" class="comments-edit-button" style="background-color: rgb(117, 123, 130);">EDIT COMMENT</a>
+                                        <form action="/plants/<%=plant._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                            <input class="comments-delete-button" type="submit" value="DELETE COMMENT">
+                                        </form> 
+                                    </div>
+                                <% }; %>
+                            </div>
                         </div>
                     </div>
-            
-                </div>
-            
                 <% }); %>
-                <div class="plant-post-comment-background-button">
-                    <div class="plant-edit-delete-buttons-container">
-                        <% if(currentUser && plant.author.id.equals(currentUser._id)){ %>
-                        <!-- 
-                                        - EDIT, DELETE (FORM)
-                                        - Show only when user logged in
-                                        -->
-                        <a class="btn btn-primary btn-sm plant-comments-delete-button" href="/plants/<%=plant._id%>/edit">EDIT PLANT</a>
-                        <form action="/plants/<%=plant._id%>?_method=DELETE" method="POST">
-                            <button class="btn btn-primary btn-sm plant-comments-delete-button">DELETE PLANT</button>
-                        </form>
-                    
-                        <%};%>
-                    </div>
-                    <% if(currentUser){ %>
-                        <a href="/plants/<%=plant._id%>/comments/new" class="plant-add-comment btn btn-primary btn-sm">NEW COMMENT</a>
-                    <% } %>
-                    <!-- <button class="btn btn-primary ml-2 btn-sm change-plant-background plant-post-change-background">CHANGE BACKGROUND</button> -->
-
-                </div>
             </div>
         </div>
     </div> 

@@ -2,14 +2,12 @@ let plantButton = document.getElementById('navbar-plants');
 let plantDropdown = document.getElementById('plant-dropdown');
 let plantDropdownItems = document.querySelectorAll('.p-item');
 
-console.log('script works');
 plantButton.addEventListener('click',()=>{
     plantDropdown.classList.toggle('plant-dropdown-hidden');
     plantDropdownItems.forEach((item)=>{
         item.classList.toggle('plant-dropdown-item-hidden');
         item.classList.toggle('plant-dropdown-item');
     })
-
 });
 
 /***************************** D3 NAVBAR ***********************************/ 

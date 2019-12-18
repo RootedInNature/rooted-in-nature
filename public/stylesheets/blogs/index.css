@@ -7,59 +7,45 @@
 }
 /************************* CONTAINER FOR WHOLE PAGE ****************************/
 .blog-index-container {
-   
     top: 40px;
     height: 81vh; /* Sets the height in between header and footer*/
-    display: block;
     /* So items will go beneath eachother */
-
-    
-    background-color:rgb(184, 213, 241);
+    background-color: lightgray;
 }
 
 /* BLOG POSTS HEADER */
 .blog-header-container{
-    display: none;
     display: flex;
     /* Center the title */
     justify-content: center;
     align-items: center;
-    width: 100%;
     background-color:  rgb(25, 98, 255);
-    margin: 0;
     height: 15vh;
 }
 
 /***************************** BLOG POSTS *************************************/
 
-
-
 /* SINGLE POST CONTAINER */
 .blog-post-container {
     height:175px;
-    width: 100%;
     
-   
-     
 }
 
 /* EVERY OTHER POST BACKGROUND SET TO OPPOSITE COLOR */
 .blog-post-container:nth-of-type(odd){
-    background: rgb(184, 213, 241);
+    background: rgb(231, 229, 229);
 }
 .blog-post-container:nth-of-type(even) {
-    background: rgb(166, 204, 240);
+    background: lightgray;
 }
 
-.blog-post-content-container{
-    width: 100%;
-}
 /* BLOG PREVIEW IMAGE */
 .blog-post-image-container {
     /* Pad the image on left and right */
     padding: 20px;
     width: 200px;
 }
+
 .blog-row{
     display: flex;
 }
@@ -84,7 +70,6 @@
     color: white;
     display: flex;
     justify-content: center;
-    
 }
 
 .add-blog:hover {

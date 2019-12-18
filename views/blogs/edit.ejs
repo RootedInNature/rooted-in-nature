@@ -1,47 +1,29 @@
 <% include ../partials/header %>
-<div class="new-blog-post-form-container">
-
-    <!-- 
-                        BOOTSTRAP FORMS
-                        - Place each separate input/label into form-group to separate
-                        - Use 'form-control' on the inputs to style the box (spans whole page)
+    <div class="form-page">
+        <a class="back-button" href="/plants/">BACK</a>
+        <div class="form-container">
+            <form action="/blogs/<%= blog._id %>?_method=PUT"" method="POST">
                 
-                        BUTTON
-                        - btn btn-primary will make a blue styled button
-                     -->
-    <form class="new-blog-post-form" action="/blogs/<%= blog._id %>?_method=PUT"" method="POST">
-
-
-        <!-- 
-                            - Action will sent the data to /blogs when post request made 
-                            - name the inputs with blog[] so can use req.body.blog which will 
-                            hold all the properties of the blog in it, then can be accessed by
-                            req.body.blog.title, etc...
-                        -->
-
-        <div class="container">
-            <div class="form-group new-blog-post-title">
-                <h2>Edit Blog</h2>
-            </div>
-            <div class="form-group">
-                <label for="formTitle">TITLE</label>
-                <input type="text" class="form-control" name="blog[title]" id="formTitle" value="<%=blog.title%>">
-            </div>
-            <div class="form-group">
-                <label for="formImage">IMAGE</label>
-                <input type="text" class="form-control" name="blog[image]" id="formImage" value="<%=blog.image%>">
-            </div>
-            <div class="form-group">
-                <label for="formBody">BODY</label>
-                <textarea class="form-control" id="formBody" name="blog[body]" ><%=blog.body%></textarea>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-sm btn-dark mt-2">
-            </div>
+                <div class="form-title-container form-item">
+                    <h2>Edit Blog</h2>
+                </div>
+                <div class="form-item">
+                    <span class="form-item-title">TITLE: </span>
+                    <span><input type="text" name="blog[title]" id="formTitle" value="<%=blog.title%>"></span>
+                </div>
+                <div class="form-item">
+                    <span class="form-item-title">IMAGE: </span>
+                    <span><input type="text" name="blog[image]" id="formImage" value="<%=blog.image%>"></span>
+                </div>
+                <div class="form-item">
+                    <span class="form-item-title">BODY:</span>
+                    <span><textarea id="formBody" name="blog[body]" ><%=blog.body%></textarea></span>
+                </div>
+                <input type="submit" class="form-item submit-button" class="form-itme">
+            
+                
+            </form>
         </div>
-
-
-    </form>
-</div>
+    </div>
 
 <% include ../partials/footer %>

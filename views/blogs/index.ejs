@@ -26,14 +26,14 @@
                 </div> <!-- DATE/TITLE ROW -->
             </div> <!-- CONTAINER FOR BLOG POSTS -->
         <% }); %>
+    <!-- ADD BLOG BUTTON (if logged in) -->
+    <% if(currentUser){ %>
+    <a href="/blogs/new" class="add-blog">
+        <h5>ADD BLOG</h5>
+    </a>
+    <% } %>
+    </div> <!-- WHOLE MAIN BODY CONTAINER-->
 
-    
-</div> <!-- WHOLE MAIN BODY CONTAINER-->
-        <% if(currentUser){ %>
-        <a href="/blogs/new" class="add-blog">
-            <h5>ADD BLOG</h5>
-        </a>
-        <% } %>
 <% include ../partials/footer %>
         
 
