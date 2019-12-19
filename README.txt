@@ -41,3 +41,6 @@ ADDING VALUE TO MODEL
 - Change the new.ejs file
 - Change edit.ejs file
 - Add property to the create route and insert into the object created
+
+ADD TOOLTIP
+https://stackoverflow.com/questions/7117073/add-a-tooltip-to-a-div

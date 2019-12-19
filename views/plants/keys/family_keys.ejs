@@ -6,35 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/plants/keys/family_keys.css">
+    
 </head>
 <body>
     <div id="plant-family-key-container">
         <div id="family-key-title"><%=key_obj['name']%></div>
         <div id="key-choice-container">
             <div class="key-choice">
-                <%=key_obj['key'][key_val]['a']['sentence']%> 
-                    <% if(parseInt(key_obj['key'][key_val]['a']['result'])){ %>
-                        <!-- If integer then this leads to another set of binomial sentences -->
-                        <a href="?key_val=<%= key_obj['key'][key_val]['a']['result'] %>"> <span class="next-button">Next</span></a>
-                    <% }else{ %>
-                        <!-- If its a word, then load the family page associated -->
-                        <a href="../families/<%= key_obj['key'][key_val]['a']['result'] %>"><span class="next-button"><%= key_obj['key'][key_val]['a']['result'] %></span></a>
-                    <% } %>
+                <%a_sentence.forEach(word=>{%>
+                    <%let new_word = word.match(/[a-z]*/i);%>
+                    <%if(Object.keys(dictionary).includes(new_word[0])){%>
+                        <a class="tooltip" style="color:white;"><%=word%>
+                        <span>
+                            <div><%=dictionary[new_word[0]]['description']%></div>
+                            <img src="<%=dictionary[new_word[0]]['img']%>"/>
+                        </span></a>
+                    <%}else{%>
+                        <%= word %>
+                    <%}%>
+                <%});%>
+                
+                <% if(parseInt(a_result)){ %>
+                    <!-- If integer then this leads to another set of binomial sentences -->
+                    <a href="?key_val=<%= a_result %>"> <span class="next-button">Next</span></a>
+                <% }else{ %>
+                    <!-- If its a word, then load the family page associated -->
+                    <a href="../families/<%= a_result %>"><span class="next-button"><%= a_result %></span></a>
+                    <a href="https://en.wikipedia.org/wiki/<%= a_result %>">
+                        <span class="next-button">Wikipedia</span></a>
+                <% } %>
                 </div>
 
             <div class="key-choice">
-                <%=key_obj['key'][key_val]['b']['sentence']%> 
-                <% if(parseInt(key_obj['key'][key_val]['b']['result'])){ %>
-                    <a href="?key_val=<%=key_obj['key'][key_val]['b']['result'] %>">
+                <!-- Loop through each word in the sentence and see if there is a dictionary term to attach to it -->
+                <%b_sentence.forEach(word=>{%>
+                    <%let new_word = word.match(/[a-z]*/i);%>
+                    <%if(Object.keys(dictionary).includes(new_word[0])){%>
+                        <span data-tooltip="tooltip" >hi</span>
+                        <span style="color:white;" title="<%=dictionary[new_word[0]]['description']%>"><%=word%></span>
+                    <%}else{%>
+                        <%= word %>
+                    <%}%>
+                <%});%>
+                <% if(parseInt(b_result)){ %>
+                    <a href="?key_val=<%=b_result %>">
                         <span class="next-button">Next</span></a></div>
                 <% }else{ %>
-                    <!-- If its a word then its the family name -->
-                    <a href="../families/<%= key_obj['key'][key_val]['b']['result'] %>">
-                        <span class="next-button"><%= key_obj['key'][key_val]['b']['result'] %></span></a>
+                    <!-- If its a word then its the family name https://en.wikipedia.org/wiki -->
+                    <a href="../families/<%= b_result %>">
+                        <span class="next-button"><%= b_result %></span></a>
+                    <a href="https://en.wikipedia.org/wiki/<%= b_result %>">
+                        <span class="next-button">Wikipedia</span></a>
                 <% } %>
             </div>
         </div>
     </div>
-    
 </body>
 </html>

@@ -16,14 +16,17 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
+    "dom-parser": "^0.1.6",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
+    "jquery": "^3.4.1",
+    "jsdom": "^15.2.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.6.8",
-    
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^5.0.1"
+    "passport-local-mongoose": "^5.0.1",
+    "xmldom": "^0.1.27"
   }
 }

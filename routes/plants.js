@@ -7,6 +7,9 @@ var Plant = require('../models/plant');
 // IMPORT MIDDLEWARE
 var middleware = require('../middleware');
 
+// Import DICTIONARY
+let dictionary = require('../public/scripts/plants/dictionary');
+
 /************************ KEYS *********************************/
 
 // IMPORT PLANT KEYS
@@ -16,13 +19,23 @@ var fernKey = require('../public/scripts/plant_keys/ferns');
 let keys = { ferns: fernKey };
 
 router.get('/families', (req,res)=>{
-    let families = ['ferns'];
-    res.render('plants/families', {families});
+    let families = ['Locopodiaceae'];
+    res.render('plants/families/index', {families});
 });
 
 router.get('/families/:family', (req, res) => {
     res.render('plants/families/family', { family: req.params.family });
 });
+
+router.get('/groups', (req,res)=>{
+    let groups = ['ferns'];
+    res.render('plants/groups/index', {groups});
+});
+
+router.get('/groups/:group', (req, res) => {
+    res.render('plants/groups/show.ejs', { group: req.params.group });
+});
+
 
 router.get('/keys',(req,res)=>{
     let groups = [{name:'Ferns And Allies', group:'ferns'}]
@@ -31,9 +44,21 @@ router.get('/keys',(req,res)=>{
 router.get('/keys/:family',(req,res)=>{
     let key_val = req.query.key_val || 01; // Take the query parameter and access the binomial key
     let family = req.params.family;
-    let key_obj = keys[family]
-    console.log(req.query.key_val);
-    res.render('plants/keys/family_keys',{ key_obj, family, key_val});
+    let key_obj = keys[family];
+
+    // Get the sentences
+    let a_sentence = key_obj['key'][key_val]['a']['sentence'];
+    let b_sentence = key_obj['key'][key_val]['b']['sentence'];
+    
+    // Split sentences into array to loop through
+    let split_a_sentence = a_sentence.split(` `);
+    let split_b_sentence = b_sentence.split(` `);
+
+    // The final linke to the next place
+    let a_result = key_obj['key'][key_val]['a']['result'];
+    let b_result = key_obj['key'][key_val]['b']['result'];
+
+    res.render('plants/keys/family_keys',{ key_obj, family, key_val, a_result, b_result, a_sentence:split_a_sentence, b_sentence:split_b_sentence, dictionary});
 });
 
 /******************************* PLANTS *********************************/
