@@ -10,17 +10,29 @@
                 <% }); %>
             </div>
         </div>
-        <% Object.keys(groups).forEach(group=>{ %>
-            <%=groups[group].group%>
-        <!-- <div id="family-key-selection-container">
-            <div id="family-key-selection-title">FAMILY</div>
-            <div id="family-key-selection-choices">
-                <% Object.keys(groups).forEach(family=>{ %>
-                    <a href="keys/<%=family.family%>"><div><%=family.name%></div></a>
-                <% }) %>
-            </div>
-        </div> -->
+        <div id="family-key-selection-container">
+            <div id="family-key-selection-title">FAMILIES</div>
+            <div id="family-keys-container">
+                <% Object.keys(groups).forEach(group=>{ %>
+                    <div style="margin-bottom: 25px;">
+                        <div id="group-title"><%=groups[group].name%></div>
+                        <div id="family-key-selection-container">
+                        
+                            <%groups[group].families.forEach(family=>{ %>
+                            <div id="family-key-selection">
+                                <a href="keys/<%=family%>">
+                                    <div id="family-name"><%=family%></div>
+                                </a>
+                        
+                            </div>
+                            <% }) %>
+                        </div>
+                    </div>
 
-        <%});%>
+                    
+                <%});%>
+            </div>
+        </div>
+
     </div>
 <% include ../../partials/footer %>

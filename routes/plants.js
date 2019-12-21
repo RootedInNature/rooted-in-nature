@@ -17,6 +17,7 @@ var fernKey = require('../public/scripts/plant_keys/ferns');
 var woodyKey = require('../public/scripts/plant_keys/woody');
 var aquaticKey = require('../public/scripts/plant_keys/aquatic');
 
+/****** FAMILY KEYS *******/
 // Used to hold all keys
 let keys = { ferns: fernKey, woody: woodyKey, aquatic:aquaticKey };
 
@@ -40,7 +41,7 @@ router.get('/groups/:group', (req, res) => {
 
 
 router.get('/keys',(req,res)=>{
-    let groups = {ferns: {name:'Ferns And Allies', group:'ferns', families:['Isoetaceae']},woody:{name:'Woody Plants', group:'woody'}, aquatic:{name:'Aquatic Plants', group:'aquatic'}};
+    let groups = { ferns: { name: 'Ferns And Allies', group: 'ferns', families: ['Isoetaceae'] }, woody: { name: 'Woody Plants', group: 'woody', families: ['Isoetaceae'] }, aquatic: { name: 'Aquatic Plants', group: 'aquatic', families: ['Isoetaceae'] }};
     
     res.render('plants/keys/index', {groups})
 })
