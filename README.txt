@@ -44,3 +44,14 @@ ADDING VALUE TO MODEL
 
 ADD TOOLTIP
 https://stackoverflow.com/questions/7117073/add-a-tooltip-to-a-div
+
+ADD PLANT KEY
+1) Turn pdftotext
+2) Order each sentence onto separate lines (result must be separated at end by '. . . .', sentence must start with #[letter])
+3) Use rin_group_extractor (/usr/local/bin) script , will need to have it here so $PATH calls it and can access it from anywhere in the terminal
+    - Will need to type type the name of the file when asked (so need to call in the folder where file located so it can access)
+4) Place into public/scripts/plant_keys
+5) Place import statement into the plant route
+6) Place into the keys object which is used to access the keys
+7) Add new object to the /keys route with parameters {name,group} which are passed to the keys index page where people can choose which key they want
+8) Will be called in the /plant/keys/:param route and accessed depending on which parameter given (:param) --> keys[:param]

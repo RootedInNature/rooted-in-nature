@@ -1,5 +1,9 @@
 <% include ../../partials/header %>
-    <% groups.forEach(group=>{ %>
-        <div><a href="keys/<%=group.group%>"><%=group.name%></a></div>
-    <% }) %>
+    <div id="key-page-container">
+        <div id="group-key-selection-container">
+            <% groups.forEach(group=>{ %>
+                <div><a href="keys/<%=group.group%>"><%=group.name%></a></div>
+            <% }) %>
+        </div>
+    </div>
 <% include ../../partials/footer %>

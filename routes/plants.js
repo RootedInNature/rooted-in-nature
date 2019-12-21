@@ -14,9 +14,11 @@ let dictionary = require('../public/scripts/plants/dictionary');
 
 // IMPORT PLANT KEYS
 var fernKey = require('../public/scripts/plant_keys/ferns');
+var woodyKey = require('../public/scripts/plant_keys/woody');
+var aquaticKey = require('../public/scripts/plant_keys/aquatic');
 
 // Used to hold all keys
-let keys = { ferns: fernKey };
+let keys = { ferns: fernKey, woody: woodyKey, aquatic:aquaticKey };
 
 router.get('/families', (req,res)=>{
     let families = ['Locopodiaceae'];
@@ -38,14 +40,16 @@ router.get('/groups/:group', (req, res) => {
 
 
 router.get('/keys',(req,res)=>{
-    let groups = [{name:'Ferns And Allies', group:'ferns'}]
+    let groups = [{name:'Ferns And Allies', group:'ferns'},{name:'Woody Plants', group:'woody'}, {name:'Aquatic Plants', group:'aquatic'}]
     res.render('plants/keys/index', {groups})
 })
-router.get('/keys/:family',(req,res)=>{
-    let key_val = req.query.key_val || 01; // Take the query parameter and access the binomial key
-    let family = req.params.family;
-    let key_obj = keys[family];
-
+router.get('/keys/:group',(req,res)=>{
+    let key_val = req.query.key_val || "01"; // Take the query parameter and access the binomial key
+    console.log(key_val)
+    let group = req.params.group;
+    console.log(group)
+    let key_obj = keys[group];
+    console.log(key_obj)
     // Get the sentences
     let a_sentence = key_obj['key'][key_val]['a']['sentence'];
     let b_sentence = key_obj['key'][key_val]['b']['sentence'];
@@ -57,8 +61,11 @@ router.get('/keys/:family',(req,res)=>{
     // The final linke to the next place
     let a_result = key_obj['key'][key_val]['a']['result'];
     let b_result = key_obj['key'][key_val]['b']['result'];
+    console.log(a_result)
+    console.log(split_a_sentence)
+    
 
-    res.render('plants/keys/family_keys',{ key_obj, family, key_val, a_result, b_result, a_sentence:split_a_sentence, b_sentence:split_b_sentence, dictionary});
+    res.render('plants/keys/group_keys',{ key_obj, group, key_val, a_result, b_result, a_sentence:split_a_sentence, b_sentence:split_b_sentence, dictionary});
 });
 
 /******************************* PLANTS *********************************/
