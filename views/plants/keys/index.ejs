@@ -1,9 +1,26 @@
 <% include ../../partials/header %>
+<div id="key-page-title">PLANT KEYS</div>
     <div id="key-page-container">
+
         <div id="group-key-selection-container">
-            <% groups.forEach(group=>{ %>
-                <div><a href="keys/<%=group.group%>"><%=group.name%></a></div>
-            <% }) %>
+            <div id="group-key-selection-title">GROUPS</div>
+            <div id="group-key-selection-choices">
+                <% Object.keys(groups).forEach(group=>{ %>
+                    <a href="keys/<%=groups[group].group%>"><div><%=groups[group].name%></div></a>
+                <% }); %>
+            </div>
         </div>
+        <% Object.keys(groups).forEach(group=>{ %>
+            <%=groups[group].group%>
+        <!-- <div id="family-key-selection-container">
+            <div id="family-key-selection-title">FAMILY</div>
+            <div id="family-key-selection-choices">
+                <% Object.keys(groups).forEach(family=>{ %>
+                    <a href="keys/<%=family.family%>"><div><%=family.name%></div></a>
+                <% }) %>
+            </div>
+        </div> -->
+
+        <%});%>
     </div>
 <% include ../../partials/footer %>

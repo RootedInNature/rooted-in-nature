@@ -40,9 +40,11 @@ router.get('/groups/:group', (req, res) => {
 
 
 router.get('/keys',(req,res)=>{
-    let groups = [{name:'Ferns And Allies', group:'ferns'},{name:'Woody Plants', group:'woody'}, {name:'Aquatic Plants', group:'aquatic'}]
+    let groups = {ferns: {name:'Ferns And Allies', group:'ferns', families:['Isoetaceae']},woody:{name:'Woody Plants', group:'woody'}, aquatic:{name:'Aquatic Plants', group:'aquatic'}};
+    
     res.render('plants/keys/index', {groups})
 })
+
 router.get('/keys/:group',(req,res)=>{
     let key_val = req.query.key_val || "01"; // Take the query parameter and access the binomial key
     console.log(key_val)
