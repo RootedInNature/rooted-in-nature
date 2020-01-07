@@ -55,3 +55,25 @@ ADD PLANT KEY
 6) Place into the keys object which is used to access the keys
 7) Add new object to the /keys route with parameters {name,group} which are passed to the keys index page where people can choose which key they want
 8) Will be called in the /plant/keys/:param route and accessed depending on which parameter given (:param) --> keys[:param]
+
+RUN DATABASE
+mongod --port 27018
+OR 
+./mongod (on bmuze1)
+
+SET UP TEST
+1) Export the app from app.js 
+https://stackoverflow.com/questions/33986863/mocha-api-testing-getting-typeerror-app-address-is-not-a-function
+2) Set up test/test.js 
+3) install mocha, chai, chai-http
+https://puppet.com/docs/pipelines-for-apps/enterprise/application-nodejs-mocha.html
+4) Set up test DATABASE
+https://mherman.org/blog/testing-node-js-with-mocha-and-chai/
+5) Type mocha to run tests
+
+ADD NEW ROUTES
+- Add route to 'routes' folder, export the router
+- Require route to app.js file
+- Integrate the route in app.js file
+- Make sure scripts are src="/scripts/..."
+- Make sure stylesheets href="/stylesheets/..."

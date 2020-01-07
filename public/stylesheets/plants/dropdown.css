@@ -5,6 +5,13 @@
     z-index: 1;
 }
 
+#math-dropdown{
+    position: absolute;
+    height: 300px;
+    display: block;
+    z-index: 1;
+}
+
 .dropdown-item{
     background-color: rgb(133, 169, 245);
     border: solid 1px rgb(25, 98, 255);

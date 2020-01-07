@@ -100,9 +100,21 @@
                     </a>
                 </div>
             </div>
-            <div class='navbar-item-container'><a href="/math">
-                    <div class="navbar-item">Math</div>
-                </a></div>
+            <div class='navbar-item-container'><a>
+                    <div class="navbar-item" id="navbar-math">Math</div>
+                    </a>
+                    <div id="math-dropdown" class="dropdown-hidden">
+                        <a href="/math/statistics">
+                            <div class="m-item dropdown-item-hidden">STATISTICS</div>
+                        </a>
+                        <a href="/math/calculus">
+                            <div class="m-item dropdown-item-hidden">CALCULUS</div>
+                        </a>
+                        <a href="/math/linear-algebra">
+                            <div class="m-item dropdown-item-hidden">LINEAR ALGEBRA</div>
+                        </a>
+                    </div>
+                </div>
             <div class="right-links">
                 <%if(!currentUser){%>
                 <a href="/login" class="">Login</a>

@@ -2,7 +2,7 @@
 var express       = require('express'),
     app           = express(),
     mongoose      = require('mongoose'), // npm install mongoose --save
-
+    morgan = require('morgan'),
     bodyParser    = require('body-parser'),
 
 // PASSPORT IMPORTS
@@ -18,7 +18,8 @@ var methodOverride = require('method-override');
 var indexRoutes   = require('./routes/index'),
     plantRoutes   = require('./routes/plants'),
     commentRoutes = require('./routes/comments'),
-    blogRoutes    = require('./routes/blogs');
+    blogRoutes    = require('./routes/blogs')
+    mathRoutes    = require('./routes/math');
 
 // SCHEMA MODEL IMPORTS
 var Plant = require('./models/plant');
@@ -29,6 +30,9 @@ var Blog    = require('./models/blog');
 // IMPORT SEED
 var plantSeedDB = require('./plantSeed.js');
 var blogSeedDB = require('./blogSeed.js')
+
+// *** config file - FOR TESTING*** //
+var config = require('./_config');
 
 // FLASH SETUP - makes sure comes before passport configuration
 app.use(flash());
@@ -43,6 +47,8 @@ app.use(flash());
  * express-session creates session object with unique key where data is stored
  *      - request.sessionID will return ID
  */
+
+
 app.use(require('express-session')({
     secret: 'You are the coolest',
     resave: false,
@@ -86,6 +92,15 @@ mongoose.connect(process.env.DATABASEURL,{
     });
 ; 
 
+// *** mongoose - FOR TEST DATABASE*** ///
+// mongoose.connect(config.mongoURI[app.settings.env], function (err, res) {
+//     if (err) {
+//         console.log('Error connecting to the database. ' + err);
+//     } else {
+//         console.log('Connected to Database: ' + config.mongoURI[app.settings.env]);
+//     }
+// });
+
 // USE BODY PARSER TO GET FORM BODY
 app.use(bodyParser.urlencoded({
     extended: true
@@ -103,6 +118,7 @@ app.use('/plants',plantRoutes);
 app.use('/', commentRoutes);
 // app.use('/', blogCommentRoutes)
 app.use('/blogs',blogRoutes);
+app.use('/math', mathRoutes);
 
 // CALL SEED
 // plantSeedDB();
@@ -113,3 +129,4 @@ app.listen(PORT, () => {
     console.log(`Our app is running on port ${PORT}`);
 });
 
+module.exports = app
